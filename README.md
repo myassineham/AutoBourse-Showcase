@@ -17,6 +17,8 @@ Après chaque séance de la **Bourse de Casablanca**, les informations nécessai
 
 L'objectif était de **réduire le travail répétitif**, conserver l'historique existant et rendre la mise à jour accessible à un utilisateur qui ne programme pas.
 
+![AutoBourse — Le besoin métier](assets/Problematique_Autobourse.png)
+
 ## V1 — La solution réalisée
 
 Le principe est volontairement simple :
@@ -26,14 +28,7 @@ Le principe est volontairement simple :
 3. Il lance le programme Python empaqueté en **exécutable Windows** (`.exe`) par un double-clic.
 4. AutoBourse extrait les données, contrôle la cohérence de la séance, actualise la base Excel et archive les fichiers traités.
 
-```mermaid
-flowchart LR
-    A["E-mail Front Office<br/>Cours XLS / XLSX"] --> C["Dépôt des fichiers<br/>par le gérant"]
-    B["Site de la Bourse de Casablanca<br/>Rapport PDF"] --> C
-    C --> D["AutoBourse<br/>Python · exécutable .exe"]
-    D --> E["Base Excel<br/>Historiques cours et volumes"]
-    D --> F["Archivage des fichiers"]
-```
+![AutoBourse — V1, une solution simple et opérationnelle](assets/Archi_V1_Autobourse.png)
 
 ### Pourquoi Python plutôt que seulement VBA ?
 
@@ -51,12 +46,7 @@ La priorité était de **livrer rapidement un outil utilisable**. Automatiser au
 - **Site de la Bourse :** récupération automatique du PDF de séance, sous réserve de vérifier les modalités d'accès et les droits d'utilisation.
 - **Excel :** lancement du traitement Python depuis un bouton dans le classeur (par exemple, avec VBA), sans manipulation des dossiers.
 
-```mermaid
-flowchart LR
-    A["Messagerie<br/>Microsoft Graph (à étudier)"] --> C["Python<br/>Extraction & contrôles"]
-    B["Rapport PDF<br/>Téléchargement automatisé (à étudier)"] --> C
-    C --> D["Excel<br/>Actualisation en un clic (envisagée)"]
-```
+![AutoBourse — Choix techniques et évolution envisagée V2](assets/archi_v2.png)
 
 **À distinguer :** la V1 a été réalisée pendant le stage. La V2 décrit une direction possible, pas une fonctionnalité déjà livrée. Le support du **XLSX** a été développé ensuite ; sa compatibilité avec les exports XLSX natifs les plus récents reste à confirmer.
 
